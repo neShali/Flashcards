@@ -1,6 +1,4 @@
-const { EventEmitter } = require('events');
-
-class Model extends EventEmitter {
+class Model {
   // Сначала приложение находится на стартовой странице выбора темы.
   // Подумай, какие ещё страницы будут в твоём приложении?
   #page = 'select-topic';
