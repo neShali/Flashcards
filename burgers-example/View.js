@@ -3,7 +3,7 @@ const readlineSync = require('readline-sync');
 class View {
   // Отобразить стартовую страницу
   renderBurgersPage(burgers) {
-    this.#renderPageBreak();
+    console.log();
 
     // Если ранее были созданы бургеры, отображаем их
     if (burgers.length) {
@@ -17,7 +17,7 @@ class View {
 
   // Отобразить страницу создания бургера
   renderMakeBurgerPage(currentBurger) {
-    this.#renderPageBreak();
+    console.log();
 
     // Отображаем текущий бургер
     this.#renderBurger(currentBurger);
@@ -32,11 +32,6 @@ class View {
   // Рендерим на экране бургер
   #renderBurger(burger) {
     console.log(`[${burger.join(' | ')}]`);
-  }
-
-  // разрыв между страницами
-  #renderPageBreak() {
-    console.log('\n\n');
   }
 }
 
