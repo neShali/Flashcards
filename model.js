@@ -1,6 +1,6 @@
 const fs = require("fs");
 const { EOL } = require("os");
-const process = require("process");
+const Answers = require("./answers");
 
 class Question {
   constructor(question) {

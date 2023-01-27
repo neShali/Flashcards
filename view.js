@@ -9,6 +9,13 @@
 // console.log(%c"Техт", "font-size: 20px; color: blue;");
 const readlineSync = require("readline-sync");
 const Theme = require("./theme");
+const Answers = require('./answers')
+const Question = require('./model')
+
+
+const themes = new Theme();
+const a = new Answers();
+const q = new Question();
 
 const formatTheme = "\033[38;5;034m";
 const formatQustion = "\033[38;5;064m";
@@ -23,30 +30,30 @@ let arrayTheme = [
 // themes.getTheme(1);
 // const thhheme = themes.allThemes();
 
-class View {
-  constructor(arrayTheme, arr, arr2) {
-    this.arrayTheme = arrayTheme;
-    this.arr = arr;
-    this.arr2 = arr2;
-  }
+// class View {
+//   constructor(arrayTheme, arr, arr2) {
+//     this.arrayTheme = arrayTheme;
+//     this.arr = arr;
+//     this.arr2 = arr2;
+//   }
 
-  askQuestion() {
-    const index = readlineSync.keyInSelect(
-      arrayTheme,
-      `${formatQustion}Which theme?`
-    );
+//   askQuestion() {
+    index = readlineSync.keyInSelect(arrayTheme,`${formatQustion}Which theme?`);
+    themes.getTheme(Number(index), a, q);
+    // console.log(themes)
+    // console.log(q)
     for (let i = 0; i < 5; i++) {
-      let answer = readlineSync.question(`${arr2[1]} `);
-      if (arr[1] === answer) {
+      let userAnswer = readlineSync.question(`${q.question[i]} `);
+      if (a.answer[i] === userAnswer) {
         console.log("Правильно!");
       } else {
         console.log("Не правильно!");
       }
     }
-  }
-}
-let viewshkaa = new View(arrayTheme);
-console.log(viewshkaa.askQuestion());
+// //   }
+// // }
+// let viewshkaa = new View(arrayTheme);
+// console.log(viewshkaa.askQuestion());
 
 // Wait for user's response.
 

@@ -1,7 +1,5 @@
-const fs = require('fs'); /// promisses
-const { Module } = require('module');
-
-const { argv } = process;
+const fs = require('fs'); 
+const Question = require('./model');
 
 class Answers {
   constructor(answer) {
