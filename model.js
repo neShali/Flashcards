@@ -9,7 +9,7 @@ class Question {
 
   getQ(adress) {
     let massQ = fs
-      .readFileSync(`${__dirname}/topics/${adress}.txt`, "utf-8")
+      .readFileSync(`${__dirname}/topics/${adress}`, "utf-8")
       .split("\n");
     let massiveQ = [];
     for (let i = 0; i < massQ.length; i += 3) {
@@ -18,6 +18,7 @@ class Question {
     this.question = massiveQ;
   }
 }
-let p = new Question();
-p.getQ("raccoon_flashcard_data");
-console.log(p.question);
+
+
+
+module.exports = Question
