@@ -8,6 +8,8 @@
 // }
 // console.log(%c"Техт", "font-size: 20px; color: blue;");
 const readlineSync = require("readline-sync");
+const Theme = require("./theme");
+
 const formatTheme = "\033[38;5;034m";
 const formatQustion = "\033[38;5;064m";
 let arrayTheme = [
@@ -15,17 +17,39 @@ let arrayTheme = [
   `${formatTheme}vydra`,
   `${formatTheme}yastreb`,
 ];
+// const arr = [1, "Vasya"];
+// const arr2 = [2, "Imya?"];
+// const themes = new Theme();
+// themes.getTheme(1);
+// const thhheme = themes.allThemes();
+
 class View {
-  constructor(arrayTheme) {
+  constructor(arrayTheme, arr, arr2) {
     this.arrayTheme = arrayTheme;
+    this.arr = arr;
+    this.arr2 = arr2;
   }
 
   askQuestion() {
-    readlineSync.keyInSelect(arrayTheme, `${formatQustion}Which theme?`);
+    const index = readlineSync.keyInSelect(
+      arrayTheme,
+      `${formatQustion}Which theme?`
+    );
+    for (let i = 0; i < 5; i++) {
+      let answer = readlineSync.question(`${arr2[1]} `);
+      if (arr[1] === answer) {
+        console.log("Правильно!");
+      } else {
+        console.log("Не правильно!");
+      }
+    }
   }
 }
 let viewshkaa = new View(arrayTheme);
 console.log(viewshkaa.askQuestion());
+
+// Wait for user's response.
+
 // let theme = new Model();
 // theme.getQuAn(index);
 
