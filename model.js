@@ -19,5 +19,5 @@ class Question {
   }
 }
 let p = new Question();
-p.getQ("raccoon_flashcard_data");
+p.getQ("bees");
 console.log(p.question);
